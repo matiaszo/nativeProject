@@ -18,6 +18,9 @@ Viking staring at the camera: https://t3.ftcdn.net/jpg/10/08/35/36/360_F_1008353
 
 Viking "cutting the hair of another one": https://blogs-images.forbes.com/erikkain/files/2019/01/Vikings-17-3.jpg
 
+Figma: https://www.figma.com/design/8DchiqJBP27jnZenuTwqqw/PROJETO-PA-SENAI---BARBER-SHOP?node-id=0-1&node-type=canvas&t=9OBQjybqIIrvcItb-0
+
+
 ### Name Ideas:
 
 1. Valhalla Cuts
