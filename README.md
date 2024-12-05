@@ -1,7 +1,7 @@
-# This is a native project, we're creating mobile app for a barbershop.
+# Solution designed and developed for a Barbershop as a Mobile App using Expo and React-Native.
 ## Github of the integrants 
- #### matiaszo
- #### kau-menezes
+### @matiaszo
+### @kau-menezes
 
 
 ## Images: 
@@ -18,4 +18,15 @@ Viking staring at the camera: https://t3.ftcdn.net/jpg/10/08/35/36/360_F_1008353
 
 Viking "cutting the hair of another one": https://blogs-images.forbes.com/erikkain/files/2019/01/Vikings-17-3.jpg
 
+### Name Ideas:
 
+1. Valhalla Cuts
+2. The Axe & Shears
+3. Thor’s Trims
+4. Berserker Barbers
+5. Viking Blade Barbershop
+6. Ragnar's Razor
+7. Odin's Shears
+8. Nordic Edge
+9. The Shield & Scissors
+10. Runestone Barbers
