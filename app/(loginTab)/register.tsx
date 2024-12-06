@@ -1,7 +1,7 @@
 import { StyleSheet} from 'react-native';
 
 
-export default function TabTwoScreen() {
+export default function Register() {
   return (
   <>
     explore
