@@ -2,69 +2,87 @@ import { SafeAreaView, Image, StyleSheet, Text, TextInput, TouchableOpacity, Vie
 import { LinearGradient } from 'expo-linear-gradient';
 import { Link } from "expo-router";
 
-export default function HomeScreen() {
+export default function Index() {
   return (
     <>
-    <ImageBackground source={require('@/assets/images/bg_image.png')} style={styles.container}>
+      <Image source={require("@/assets/images/topLogo.png")} width={100} height={100}/>
+
       <View style={styles.project}>
-        <Image source={require("@/assets/images/barberLogo.png")} width={100} height={100}/>
-        <Text style={{fontFamily: "inter", fontSize: 30, color: "#f2dac2"}}>Main text</Text>
-        <Text style={{fontFamily: "inter", fontSize: 20, color: "#977656"}}>Secondary text</Text>
-        <View style={styles.inputBoxes}>    
-          <LinearGradient style={styles.gradientBoxes} start={{x: 0.1, y: 0.2}} colors={[ "#ffffff", "#ffffff"]}>
-              <TextInput style={styles.input} placeholder="   👤   Email" keyboardType="email-address"/>
-          </LinearGradient>
+        <View style={{display: "flex", alignItems: "center", width: "100%"}}>
+          <Image source={require("@/assets/images/barberLogo.png")} width={100} height={100} style={{margin: 20}}/>
+          <Text style={{fontFamily: "inter", fontSize: 30, color: "#f8f8f8"}}>Login on your account</Text>
+          <Text style={{fontFamily: "inter", fontSize: 16, color: "#f8f8f8", marginBottom: 30}}>Insert your login credentials here</Text>
+          <View style={styles.inputBoxes}> 
+            <View style={styles.inputAndTopText}>  
+              <Text style={styles.topText}>E-mail</Text> 
+              <TextInput style={styles.input} placeholderTextColor={"#c1c1c1"} placeholder="  Type your email" keyboardType="email-address"/>
+            </View>
+            <View style={styles.inputAndTopText}>
+              <Text style={styles.topText}>Password</Text> 
+              <TextInput style={styles.input} placeholderTextColor={"#c1c1c1"} placeholder="  Type your password" keyboardType="default"/>
+              <Link href={"/(loginTab)/recpassword"}>
+                <Text style={[styles.topText, {opacity: 0.8}]}>Forgot your password? Rescue it here</Text> 
+              </Link>
+            </View>
+          </View>
         </View>
-        <View style={styles.inputBoxes}>
-          <LinearGradient style={styles.gradientBoxes} start={{x: 0.1, y: 0.2}} colors={[ "#ffffff", "#ffffff"]}>
-              <TextInput style={styles.input} placeholder="   🔒   Password" keyboardType="default"/>
-          </LinearGradient>
+
+        <View style={{display: "flex", justifyContent: "space-between", alignItems: "center"}}>
+          <Link href={"/(loginTab)/register"}>
+            <TouchableOpacity style={styles.button}>
+              <Text style={{fontFamily: "inter", fontSize: 20}}>Sign in</Text>
+            </TouchableOpacity>
+          </Link>
+
+          <View style={{width: "100%", marginLeft: 30, marginBottom: 20}}>
+            <Link href={"/(loginTab)/register"} style={{display: "flex", flexDirection:"column"}}>
+              <Text style={{color: "#f8f8f8", marginBottom:5, fontSize: 18, opacity: 0.8}}>New around here?</Text>
+              <Text style={{color: "#f8f8f8", fontSize: 12, opacity: 0.8}}>Register with us here</Text>
+            </Link>
+          </View>
         </View>
-        <Link href={"/(loginTab)/register"}>
-        <TouchableOpacity style={styles.button}>
-            <Text style={{fontFamily: "inter", fontSize: 20}} >Entrar</Text>
-        </TouchableOpacity>
-        </Link>
       </View>
-    </ImageBackground>
-    </>
+      </>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    width: null,
-    height: null,
-  },
   project: {
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-    marginVertical: 20
+    flex: 1,
+    justifyContent: "space-between",
+    // alignItems: "center",
+    backgroundColor: "#000000"
   },
   inputBoxes: {
+    width: "90%",
     display:"flex",
     justifyContent: "center",
-    alignItems: "center",
-    marginTop: 20
+    marginTop: 20,
 },
-gradientBoxes: {
-  width: 350,
-  borderRadius: 10
+inputAndTopText: {
+  marginTop: 15,
+  gap: 5
+},
+
+topText: {
+  marginLeft: 2,
+  color: "#ffffff",
 },
 input: {
+  height: 40,
+  backgroundColor: "#f8f8f8",
+  borderRadius: 10,
   paddingHorizontal: 5,
   paddingVertical: 15,
-  opacity: 0.8
 },
 button: {
-  backgroundColor: "#49A840FF",
+  width: 110,
+  height: 30,
+  backgroundColor: "#f8f8f8",
   justifyContent: "center",
   alignItems: "center",
   borderRadius: 10,
   padding: 5,
   marginVertical: 25,
-  height: 35
 },
 });
