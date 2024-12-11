@@ -2,49 +2,38 @@ import { SafeAreaView, Image, StyleSheet, Text, TextInput, TouchableOpacity, Vie
 import { LinearGradient } from 'expo-linear-gradient';
 import { Link } from "expo-router";
 import React from "react";
+import Header from "@/components/Header";
 
-export default function HomeScreen() {
+export default function ScheduleScreen() {
   return (
-    <>
-      <Text>oi</Text>
-    </>
+    <SafeAreaView style={styles.safe}>
+        <Image source={require("@/assets/images/barber-line.png")} width={50} height={50}/>
+        <View style={styles.mainContainer}>
+            <Header textOne="Schedule" textTwo="an appointment"/>
+        </View>
+    </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    width: null,
-    height: null,
-  },
-  project: {
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-    marginVertical: 20
-  },
-  inputBoxes: {
-    display:"flex",
-    justifyContent: "center",
-    alignItems: "center",
-    marginTop: 20
-},
-gradientBoxes: {
-  width: 350,
-  borderRadius: 10
-},
-input: {
-  paddingHorizontal: 5,
-  paddingVertical: 15,
-  opacity: 0.8
-},
-button: {
-  backgroundColor: "#49A840FF",
-  justifyContent: "center",
-  alignItems: "center",
-  borderRadius: 10,
-  padding: 5,
-  marginVertical: 25,
-  height: 35
-},
+    safe: {
+        backgroundColor: "#131316",
+        flex: 1
+    },
+    header: {
+        color: "#FFFFFF",
+        fontFamily: "lobster",
+        fontSize: 32
+    },
+    h2: {
+        color: "#FFFFFF",
+        fontFamily: "eRegular",
+        fontSize: 16,
+        fontStyle: "italic"
+    },
+    mainContainer: {
+        flex: 1,
+        alignItems: "center",
+        padding: 30
+    }
 });
