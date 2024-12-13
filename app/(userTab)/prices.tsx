@@ -3,7 +3,7 @@ import { LinearGradient } from 'expo-linear-gradient';
 import { Link } from "expo-router";
 import React from "react";
 import Header from "@/components/Header";
-// import { FlatList } from "react-native-reanimated/lib/typescript/Animated";
+import { FlatList } from "react-native-reanimated/lib/typescript/Animated";
 
 interface IData {
   service: string, 
@@ -44,9 +44,9 @@ export default function PriceScreen() {
         <Image source={require("@/assets/images/barber-line.png")} width={50} height={50}/>
         <View style={styles.mainContainer}>
             <Header textOne="Check" textTwo="our prices"/>
-            {/* <FlatList data={data} renderItem={undefined}> */}
+            <FlatList data={data} renderItem={undefined}>
 
-            {/* </FlatList> */}
+            </FlatList>
         </View>
     </SafeAreaView>
   );
