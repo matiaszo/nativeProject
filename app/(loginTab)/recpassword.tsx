@@ -15,7 +15,7 @@ const RegisterPage = () => {
 
       <View style={styles.project}>
         <View style={{display: "flex", alignItems: "center", width: "100%"}}>
-          <Image source={require("@/assets/images/barberLogo.png")} width={100} height={100} style={{margin: 20}}/>
+          <Image source={require("@/assets/images/barber-line.png")} width={100} height={100} style={{margin: 20}}/>
           <Text style={{fontFamily: "inter", fontSize: 30, color: "#f8f8f8"}}>Register a new account</Text>
           <Text style={{fontFamily: "inter", fontSize: 16, color: "#f8f8f8", marginBottom: 30}}>Insert your information and register with us</Text>
           
