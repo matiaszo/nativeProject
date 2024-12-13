@@ -31,8 +31,12 @@ export default function RootLayout() {
 
   return (
    <Stack>
+    <Stack.Screen name='index' options={{headerShown: false}}></Stack.Screen>
+    <Stack.Screen name='register' options={{headerShown: false}}></Stack.Screen>
+    <Stack.Screen name='recpassword' options={{headerShown: false}}></Stack.Screen>
+    {/* <Stack.Screen name='(loginTabs)' options={{headerShown: false}}></Stack.Screen> */}
+    {/* <Stack.Screen name="register" options={{headerShown: false}}></Stack.Screen> */}
     <Stack.Screen name="(userTab)" options={{headerShown: false}}></Stack.Screen>
-    <Stack.Screen name="(loginTab)" options={{headerShown: false}}></Stack.Screen>
    </Stack>
   );
 }
