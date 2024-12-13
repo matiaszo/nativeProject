@@ -16,9 +16,9 @@ const RegisterPage = () => {
 
       <View style={styles.project}>
         <View style={{display: "flex", alignItems: "center", width: "100%"}}>
-          <Image source={require("@/assets/images/barberLogo.png")} width={100} height={100} style={{margin: 20}}/>
-          <Text style={{fontFamily: "inter", fontSize: 30, color: "#f8f8f8"}}>Register a new account</Text>
-          <Text style={{fontFamily: "inter", fontSize: 16, color: "#f8f8f8", marginBottom: 30}}>Insert your information and register with us</Text>
+          <Image source={require("@/assets/images/barber-line.png")} width={100} height={100} style={{margin: 20}}/>
+          <Text style={{fontFamily: "lobster", fontSize: 30, color: "#f8f8f8"}}>Recover yout password</Text>
+          <Text style={{fontFamily: "lobster", fontSize: 16, color: "#E1E1E1", marginBottom: 30}}>Insert your emai below and recieve a code</Text>
           
           <View style={styles.inputBoxes}> 
             <View style={styles.inputAndTopText}>  
