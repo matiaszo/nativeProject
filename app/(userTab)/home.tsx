@@ -1,12 +1,7 @@
 import { SafeAreaView, Image, StyleSheet, Text, TextInput, TouchableOpacity, View, Alert, ImageBackground } from "react-native"
-import { LinearGradient } from 'expo-linear-gradient';
-import { Link } from "expo-router";
-import React from "react";
-import { useFonts } from "expo-font";
+import React, { useState } from "react";
 
 import Header from "@/components/Header";
-
-
 
 export default function HomeScreen() {
   return (

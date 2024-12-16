@@ -16,7 +16,8 @@ export default function RootLayout() {
     eBold: require('../assets/fonts/Enriqueta-Bold.ttf'),
     eMedium: require('../assets/fonts/Enriqueta-Medium.ttf'),
     eRegular: require('../assets/fonts/Enriqueta-Regular.ttf'),
-    eSemiBold: require('../assets/fonts/Enriqueta-SemiBold.ttf')
+    eSemiBold: require('../assets/fonts/Enriqueta-SemiBold.ttf'),
+    sen: require('../assets/fonts/Sen-VariableFont_wght.ttf')
   });
 
   useEffect(() => {

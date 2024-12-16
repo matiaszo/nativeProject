@@ -8,7 +8,7 @@ interface IHeader {
 
 const Header = (props: IHeader) => {
     return (
-        <View style={{flex: 1, flexDirection: "row", width: "100%"}}>
+        <View style={{display: "flex", flexDirection: "row", width: "100%", height: "20%"}}>
             <View style={styles.view}>
                 <Text style={styles.textOne}>{props.textOne}</Text>
                 <Text style={styles.textTwo}>{props.textTwo}</Text>

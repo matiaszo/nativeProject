@@ -45,7 +45,6 @@ export default function PriceScreen() {
         <View style={styles.mainContainer}>
             <Header textOne="Check" textTwo="our prices"/>
             <FlatList data={data} renderItem={undefined}>
-
             </FlatList>
         </View>
     </SafeAreaView>
