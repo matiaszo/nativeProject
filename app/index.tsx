@@ -9,8 +9,7 @@ export default function Index() {
       <Image source={require("@/assets/images/topLogo.png")} width={100} height={100}/>
 
       <View style={styles.project}>
-        <View style={{display: "flex", alignItems: "center", width: "100%"}}>
-          <Image source={require("@/assets/images/topLogo.png")} width={100} height={100} style={{margin: 20}}/>
+        <View style={{display: "flex", alignItems: "center", width: "100%", marginTop: 10}}>
           <Text style={{fontFamily: "lobster", fontSize: 30, color: "#f8f8f8"}}>Login on your account</Text>
           <Text style={{fontFamily: "lobster", fontSize: 16, color: "#f8f8f8", marginBottom: 30}}>Insert your login credentials here</Text>
           <View style={styles.inputBoxes}> 
@@ -35,7 +34,7 @@ export default function Index() {
             </TouchableOpacity>
           </Link>
 
-          <View style={{width: "100%", marginLeft: 30, marginBottom: 20}}>
+          <View style={{width: "100%", marginLeft: 30, marginBottom: 30}}>
             <Link href={"/register"} style={{display: "flex", flexDirection:"column"}}>
               <Text style={{color: "#f8f8f8", marginBottom:5, fontSize: 18, opacity: 0.8, fontFamily: "lobster"}}>New around here?</Text>
               <Text style={{color: "#f8f8f8", fontSize: 12, opacity: 0.8, fontFamily: "eRegular"}}>Register with us here</Text>
@@ -51,7 +50,6 @@ const styles = StyleSheet.create({
   project: {
     flex: 1,
     justifyContent: "space-between",
-    // alignItems: "center",
     backgroundColor: "#000000"
   },
   inputBoxes: {

@@ -15,8 +15,7 @@ const RegisterPage = () => {
       <Image source={require("@/assets/images/topLogo.png")} width={100} height={100}/>
 
       <View style={styles.project}>
-        <View style={{display: "flex", alignItems: "center", width: "100%"}}>
-          <Image source={require("@/assets/images/barber-line.png")} width={100} height={100} style={{margin: 20}}/>
+        <View style={{display: "flex", alignItems: "center", width: "100%", marginTop: 10}}>
           <Text style={{fontFamily: "lobster", fontSize: 30, color: "#f8f8f8"}}>Recover your password</Text>
           <Text style={{fontFamily: "lobster", fontSize: 16, color: "#E1E1E1", marginBottom: 30}}>Insert your emai below and recieve a code</Text>
           
@@ -75,13 +74,13 @@ const RegisterPage = () => {
         </View>
 
         <View style={{display: "flex", justifyContent: "space-between", alignItems: "center"}}>
-          <Link href={"/register"}>
+          <Link href={"/"}>
             <TouchableOpacity style={[styles.button]}>
               <Text style={{fontFamily: "lobster", fontSize: 20}}>Sign in</Text>
             </TouchableOpacity>
           </Link>
 
-          <View style={{width: "100%", marginLeft: 30, marginBottom: 20}}>
+          <View style={{width: "100%", marginLeft: 30, marginBottom: 30}}>
             <Link href={"/"} style={{display: "flex", flexDirection:"column"}}>
               <Text style={{color: "#f8f8f8", marginBottom:5, fontSize: 18, opacity: 0.8}}>Already a member?</Text>
               <Text style={{color: "#f8f8f8", fontSize: 12, opacity: 0.8}}>Sign in with your account here</Text>
