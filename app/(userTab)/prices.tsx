@@ -1,9 +1,9 @@
-import { SafeAreaView, Image, StyleSheet, Text, TextInput, TouchableOpacity, View, Alert, ImageBackground } from "react-native"
+import { SafeAreaView, Image, StyleSheet, Text, TextInput, TouchableOpacity, View, Alert, ImageBackground} from "react-native"
 import { LinearGradient } from 'expo-linear-gradient';
 import { Link } from "expo-router";
 import React from "react";
 import Header from "@/components/Header";
-import { FlatList } from "react-native-reanimated/lib/typescript/Animated";
+import { FlatList } from "react-native"; 
 
 interface IData {
   service: string, 

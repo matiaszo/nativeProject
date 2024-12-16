@@ -10,9 +10,9 @@ export default function Index() {
 
       <View style={styles.project}>
         <View style={{display: "flex", alignItems: "center", width: "100%"}}>
-          <Image source={require("@/assets/images/barberLogo.png")} width={100} height={100} style={{margin: 20}}/>
-          <Text style={{fontFamily: "inter", fontSize: 30, color: "#f8f8f8"}}>Login on your account</Text>
-          <Text style={{fontFamily: "inter", fontSize: 16, color: "#f8f8f8", marginBottom: 30}}>Insert your login credentials here</Text>
+          <Image source={require("@/assets/images/topLogo.png")} width={100} height={100} style={{margin: 20}}/>
+          <Text style={{fontFamily: "lobster", fontSize: 30, color: "#f8f8f8"}}>Login on your account</Text>
+          <Text style={{fontFamily: "lobster", fontSize: 16, color: "#f8f8f8", marginBottom: 30}}>Insert your login credentials here</Text>
           <View style={styles.inputBoxes}> 
             <View style={styles.inputAndTopText}>  
               <Text style={styles.topText}>E-mail</Text> 
@@ -29,7 +29,7 @@ export default function Index() {
         </View>
 
         <View style={{display: "flex", justifyContent: "space-between", alignItems: "center"}}>
-          <Link href={"/(loginTab)/register"}>
+          <Link href={"/register"}>
             <TouchableOpacity style={styles.button}>
               <Text style={{fontFamily: "lobster", fontSize: 20}}>Sign in</Text>
             </TouchableOpacity>

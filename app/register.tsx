@@ -1,6 +1,7 @@
 import { SafeAreaView, Image, StyleSheet, Text, TextInput, TouchableOpacity, View, Alert, ImageBackground } from "react-native"
 import { LinearGradient } from 'expo-linear-gradient';
 import { Link } from "expo-router";
+import React from "react";
 
 export default function Register() {
   return (
@@ -9,9 +10,9 @@ export default function Register() {
 
       <View style={styles.project}>
         <View style={{display: "flex", alignItems: "center", width: "100%"}}>
-          <Image source={require("@/assets/images/barberLogo.png")} width={100} height={100} style={{margin: 20}}/>
-          <Text style={{fontFamily: "inter", fontSize: 30, color: "#f8f8f8"}}>Register a new account</Text>
-          <Text style={{fontFamily: "inter", fontSize: 16, color: "#f8f8f8", marginBottom: 30}}>Insert your information and register with us</Text>
+          <Image source={require("@/assets/images/topLogo.png")} width={100} height={100} style={{margin: 20}}/>
+          <Text style={{fontFamily: "lobster", fontSize: 30, color: "#f8f8f8"}}>Register a new account</Text>
+          <Text style={{fontFamily: "lobster", fontSize: 16, color: "#f8f8f8", marginBottom: 30}}>Insert your information and register with us</Text>
           <View style={styles.inputBoxes}> 
             <View style={styles.inputAndTopText}>  
               <Text style={styles.topText}>Name</Text> 
