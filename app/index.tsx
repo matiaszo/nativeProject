@@ -29,7 +29,7 @@ export default function Index() {
         </View>
 
         <View style={{display: "flex", justifyContent: "space-between", alignItems: "center"}}>
-          <Link href={"/register"}>
+          <Link href={"/(userTab)/home"}>
             <TouchableOpacity style={styles.button}>
               <Text style={{fontFamily: "lobster", fontSize: 20}}>Sign in</Text>
             </TouchableOpacity>
