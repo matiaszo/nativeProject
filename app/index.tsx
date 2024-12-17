@@ -1,17 +1,16 @@
-import { SafeAreaView, Image, StyleSheet, Text, TextInput, TouchableOpacity, View, Alert, ImageBackground } from "react-native"
+import { SafeAreaView, StyleSheet, Text, TextInput, TouchableOpacity, View, Alert, ImageBackground } from "react-native"
 import { LinearGradient } from 'expo-linear-gradient';
 import { Link } from "expo-router";
 import React from "react";
+import { Image } from "expo-image"
 
 export default function Index() {
   return (
-    <>
-      <Image source={require("@/assets/images/topLogo.png")} width={100} height={100}/>
-
       <View style={styles.project}>
-        <View style={{display: "flex", alignItems: "center", width: "100%", marginTop: 10}}>
+        <View style={{display: "flex", alignItems: "center"}}>
+          <Image source={require("@/assets/images/topLogo.png")} style={styles.image}/>
           <Text style={{fontFamily: "lobster", fontSize: 30, color: "#f8f8f8"}}>Login on your account</Text>
-          <Text style={{fontFamily: "lobster", fontSize: 16, color: "#f8f8f8", marginBottom: 30}}>Insert your login credentials here</Text>
+          <Text style={{fontFamily: "lobster", fontSize: 16, color: "#f8f8f8"}}>Insert your login credentials here</Text>
           <View style={styles.inputBoxes}> 
             <View style={styles.inputAndTopText}>  
               <Text style={styles.topText}>E-mail</Text> 
@@ -34,15 +33,14 @@ export default function Index() {
             </TouchableOpacity>
           </Link>
 
-          <View style={{width: "100%", marginLeft: 30, marginBottom: 30}}>
+          <View style={{width: "100%"}}>
             <Link href={"/register"} style={{display: "flex", flexDirection:"column"}}>
-              <Text style={{color: "#f8f8f8", marginBottom:5, fontSize: 18, opacity: 0.8, fontFamily: "lobster"}}>New around here?</Text>
+              <Text style={{color: "#f8f8f8", fontSize: 18, opacity: 0.8, fontFamily: "lobster"}}>New around here?</Text>
               <Text style={{color: "#f8f8f8", fontSize: 12, opacity: 0.8, fontFamily: "eRegular"}}>Register with us here</Text>
             </Link>
           </View>
         </View>
       </View>
-      </>
   );
 }
 
@@ -56,15 +54,19 @@ const styles = StyleSheet.create({
     width: "90%",
     display:"flex",
     justifyContent: "center",
-    marginTop: 20,
+    // marginTop: 20,
 },
 inputAndTopText: {
-  marginTop: 15,
+  // marginTop: 15,
   gap: 5
+},
+image:{
+  width: "100%",
+  height: 10
 },
 
 topText: {
-  marginLeft: 2,
+  // marginLeft: 2,
   color: "#ffffff",
   fontFamily: "eSemibold"
 },
@@ -84,6 +86,6 @@ button: {
   alignItems: "center",
   borderRadius: 10,
   padding: 5,
-  marginVertical: 25,
+  // marginVertical: 25,
 },
 });

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { View, Text,StyleSheet, TextInput, TouchableOpacity, Image } from 'react-native';
+import { View, Text,StyleSheet, TextInput, TouchableOpacity } from 'react-native';
 import { Link } from 'expo-router';
-
+import { Image } from "expo-image"
 
 const RegisterPage = () => {
   const [showInputs, setShowInputs] = useState(false);
@@ -12,12 +12,12 @@ const RegisterPage = () => {
 
   return (
     <>
-      <Image source={require("@/assets/images/topLogo.png")} width={100} height={100}/>
 
       <View style={styles.project}>
-        <View style={{display: "flex", alignItems: "center", width: "100%", marginTop: 10}}>
+        <View style={{display: "flex", alignItems: "center", width: "100%"}}>
+          <Image source={require("@/assets/images/topLogo.png")} style={styles.image}/>
           <Text style={{fontFamily: "lobster", fontSize: 30, color: "#f8f8f8"}}>Recover your password</Text>
-          <Text style={{fontFamily: "lobster", fontSize: 16, color: "#E1E1E1", marginBottom: 30}}>Insert your emai below and recieve a code</Text>
+          <Text style={{fontFamily: "lobster", fontSize: 16, color: "#E1E1E1"}}>Insert your emai below and recieve a code</Text>
           
           <View style={styles.inputBoxes}> 
             <View style={styles.inputAndTopText}>  
@@ -63,7 +63,7 @@ const RegisterPage = () => {
                   <TextInput 
                     style={styles.input} 
                     placeholderTextColor={"#c1c1c1"} 
-                    placeholder="  Type your password" 
+                    placeholder="  Confirm your new password" 
                     keyboardType="default"
                   />
                   <Link href={"/recpassword"} />
@@ -80,9 +80,9 @@ const RegisterPage = () => {
             </TouchableOpacity>
           </Link>
 
-          <View style={{width: "100%", marginLeft: 30, marginBottom: 30}}>
+          <View style={{width: "100%"}}>
             <Link href={"/"} style={{display: "flex", flexDirection:"column"}}>
-              <Text style={{color: "#f8f8f8", marginBottom:5, fontSize: 18, opacity: 0.8}}>Already a member?</Text>
+              <Text style={{color: "#f8f8f8",  fontSize: 18, opacity: 0.8}}>Already a member?</Text>
               <Text style={{color: "#f8f8f8", fontSize: 12, opacity: 0.8}}>Sign in with your account here</Text>
             </Link>
           </View>
@@ -106,16 +106,20 @@ const styles = StyleSheet.create({
     width: "90%",
     display:"flex",
     justifyContent: "center",
-    marginTop: 20,
+
+},
+image:{
+  width: "100%",
+  height: 10
 },
 inputAndTopText: {
-  marginTop: 15,
+
   gap: 5,
   color: "#a4a4a4"
 },
 
 topText: {
-  marginLeft: 2,
+
   color: "#ffffff",
   fontFamily: "eSemibold"
 },
@@ -135,6 +139,6 @@ button: {
   alignItems: "center",
   borderRadius: 10,
   padding: 5,
-  marginVertical: 25,
+
 },
 });
