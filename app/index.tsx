@@ -15,7 +15,7 @@ export default function Index() {
           <View style={styles.inputBoxes}> 
             <View style={styles.inputAndTopText}>  
               <Text style={styles.topText}>E-mail</Text> 
-              <TextInput style={styles.input} placeholderTextColor={"#c1c1c1"} placeholder="  Type your email" keyboardType="email-address"/>
+              <TextInput style={styles.input} placeholderTextColor={"#c2c2c2"} placeholder="  Type your email " keyboardType="email-address"/>
             </View>
             <View style={styles.inputAndTopText}>
               <Text style={styles.topText}>Password</Text> 

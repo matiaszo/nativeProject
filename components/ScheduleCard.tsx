@@ -18,7 +18,7 @@ const ScheduleCard = (props: IHeader) => {
                 <Text style={styles.text}>{props.time}</Text>
             </View>
             <TouchableOpacity style={styles.button}>
-                <Text style={{fontFamily: "sen", fontSize: 15, color: '#FFFFFF'}}>Sign in</Text>
+                <Text style={{fontFamily: "sen", fontSize: 15, color: '#FFFFFF'}}>Cancel</Text>
             </TouchableOpacity>
         </View>
     )
