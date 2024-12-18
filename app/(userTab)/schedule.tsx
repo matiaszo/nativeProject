@@ -9,6 +9,7 @@
     ScrollView,  // Import ScrollView
   } from "react-native";
 
+import ToastManager, { Toast } from "toastify-react-native";
  
   import { Image } from "expo-image";
 
@@ -96,6 +97,7 @@
 
     return (
       <View style={styles.safe}>
+        <ToastManager/>
         <Image
           source={require("@/assets/images/barber-line.png")}
           style={{width: "100%", height: 8}}
@@ -268,11 +270,27 @@
                 {
                   date && hour ? 
                   <TouchableOpacity style={styles.button1} onPress={ () => {
-                    schedule.push({date: date.toLocaleDateString(), time: hour + ":" + minutes});
-                    setPage(0);
-                    setDate(undefined);
-                    setHour(undefined);
-                    setMinutes(undefined);
+                    
+                    console.log(date.toLocaleDateString());
+                    
+
+                    if (date.toLocaleDateString() == "18/12/2024") {
+                      Toast.error("Dwight Schrute is not avaible at this time and date.");
+                      setDate(undefined);
+                      setHour(undefined);
+                      setMinutes(undefined);
+
+                    } else {
+                      schedule.push({date: date.toLocaleDateString(), time: hour + ":" + minutes});
+                      setPage(0);
+                      setDate(undefined);
+                      setHour(undefined);
+                      setMinutes(undefined);
+                      Toast.success("Appointmend schedulled successfully!");
+
+                    }
+
+
                   }}>
                     <Text style={styles.buttonText}>Confirm</Text>
                   </TouchableOpacity>
@@ -306,7 +324,7 @@
     button: {
       width: 210,
       height: 40,
-      backgroundColor: "blue",
+      backgroundColor: "#2b518f",
       justifyContent: "center",
       alignItems: "center",
       borderRadius: 10,

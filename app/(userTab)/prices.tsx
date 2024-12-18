@@ -5,6 +5,7 @@ import React, { useState } from "react";
 import Header from "@/components/Header";
 import { FlatList } from "react-native"; 
 import Price from "@/components/Price";
+import ToastManager, { Toast } from "toastify-react-native";
 
 interface IData {
   id: string
@@ -43,12 +44,13 @@ export default function PriceScreen() {
 
   return (
     <SafeAreaView style={styles.safe}>
+      <ToastManager />
         <Image source={require("@/assets/images/barber-line.png")} width={50} height={50}/>
         <View style={styles.mainContainer}>
           <Header textOne="Check" textTwo="our prices"/>
           {page === 0 && 
             <>
-              <TouchableOpacity style={styles.button1} onPress={ () => {
+              <TouchableOpacity style={styles.button2} onPress={ () => {
                     setPage(1)
                   }}>
                     <Text style={styles.buttonText}>+</Text>
@@ -98,14 +100,24 @@ export default function PriceScreen() {
                   value={price?.toString()}  // Convert price to string
                   onChangeText={(text) => setPrice(text ? parseFloat(text) : undefined)}  // Convert text to number
                 />
-                <TouchableOpacity style={styles.button1} onPress={ () => {
-                    data.push({service: newService ? newService : "", id: "15", price: price ? price : 20} )
-                    setPage(0)
-                    setPrice(undefined)
-                    setService(undefined)
-                  }}>
-                    <Text style={styles.buttonText}>Create</Text>
-              </TouchableOpacity>
+                <View style={{width: "100%", display: "flex", flexDirection: "row", justifyContent: "space-between", marginBottom: 30}}>
+                <TouchableOpacity style={styles.button3} onPress={ () => {
+                      setPage(0)
+                      setPrice(undefined)
+                      setService(undefined)
+                    }}>
+                      <Text style={styles.buttonText}>Cancel</Text>
+                </TouchableOpacity>
+                  <TouchableOpacity style={styles.button1} onPress={ () => {
+                      data.push({service: newService ? newService : "", id: "15", price: price ? price : 20} )
+                      setPage(0)
+                      setPrice(undefined)
+                      setService(undefined)
+                      Toast.success("Service addedd to the database successfully!");
+                    }}>
+                      <Text style={styles.buttonText}>Create</Text>
+                </TouchableOpacity>
+                </View>
             </View>
           }
         </View>
@@ -120,14 +132,37 @@ const styles = StyleSheet.create({
     },
     button1: {
       width: 100,
-      height: 40,
+      height: 30,
       backgroundColor: "#AA0000",
       justifyContent: "center",
       alignItems: "center",
       borderRadius: 10,
       marginVertical: 10,
-      alignSelf: "center"
+      alignSelf: "center",  
+      marginTop: 50
   },
+  button2: {
+    width: 30,
+    height: 30,
+    backgroundColor: "#AA0000",
+    justifyContent: "center",
+    alignItems: "center",
+    borderRadius: 100,
+    marginVertical: 10,
+    alignSelf: "center",
+    
+},
+button3: {
+  width: 100,
+  height: 30,
+  backgroundColor: "#777777",
+  justifyContent: "center",
+  alignItems: "center",
+  borderRadius: 10,
+  marginVertical: 10,
+  alignSelf: "center",
+  marginTop: 50
+},
     buttonText: {
       fontFamily: "sen",
       fontWeight: "500",
