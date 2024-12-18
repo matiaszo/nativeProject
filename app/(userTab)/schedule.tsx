@@ -10,7 +10,7 @@
     ScrollView,  // Import ScrollView
   } from "react-native";
 
-  import { DatePickerModal } from 'react-native-paper-dates';
+  import { DatePickerModal, TimePickerModal } from 'react-native-paper-dates';
 
   import React, { useState, useEffect } from "react";
   import Header from "@/components/Header";
@@ -50,17 +50,34 @@
   export default function ScheduleScreen() {
     const [page, setPage] = useState(0);
     const [schedule, setSchedule] = useState<ISchedule[]>([]);
-    const [date, setDate] = useState(undefined)
+    const [date, setDate] = useState<Date | undefined>(undefined)
     const [open, setOpen] = React.useState(false);
+
+    const [visible, setVisible] = React.useState(false)
+    const[hour, setHour] = useState(undefined)
+    const[minutes, setMinutes] = useState(undefined)
+
+    const onDismiss = React.useCallback(() => {
+      setVisible(false);
+    }, [setVisible]);
+    
+    const onConfirm = React.useCallback(
+      ({ hours, minutes }: any) => {
+        setVisible(false);
+        setHour(hours);   // Update the selected hour
+        setMinutes(minutes);  // Update the selected minutes
+      },
+      [setVisible, setHour, setMinutes]
+    );
 
     const onDismissSingle = React.useCallback(() => {
       setOpen(false);
     }, [setOpen]);
-  
+    
     const onConfirmSingle = React.useCallback(
       (params: any) => {
         setOpen(false);
-        setDate(params.date);
+        setDate(params.date);  // Update the selected date
       },
       [setOpen, setDate]
     );
@@ -104,6 +121,8 @@
                 ))}
               </>
             )}
+
+
             {page === 1 && (
               <>
                 <Text
@@ -163,13 +182,6 @@
                   placeholder="Search for barber..."
                   keyboardType="default"
                 />
-                {/* <ScrollView contentContainerStyle={styles.barberCardWrapper}>
-                  {barberList.map((item) => {
-                    return (
-                      <BarberCard key={item.id} name={item.name} />
-                    );
-                  })}
-                </ScrollView> */}
                 <SafeAreaView style={{display: "flex", flexDirection: "row", flexWrap: "wrap", gap: 20}}>
                   
                     {
@@ -199,58 +211,72 @@
             {page === 3 && (
               <>
                 <Text
-                  style={{ fontFamily: "sen", fontSize: 20, color: "#FFFFFF", marginBottom: 20 }}
+                  style={{
+                    fontFamily: "sen",
+                    fontSize: 20,
+                    color: "#FFFFFF",
+                    marginBottom: 20,
+                  }}
                 >
                   3. Choose your appropriate day and time
                 </Text>
-                <DatePickerModal
-                locale="en"
-                mode="single"
-                visible={open}
-                onDismiss={onDismissSingle}
-                date={date}
-                onConfirm={onConfirmSingle}
-              />
-              <TouchableOpacity
-                  style={{width: "100%", backgroundColor: "#FFFFFF"}}
-                  onPress={() => {
-                    setOpen(true);
-                  }}
-                >
-                  <Text style={{color: "#000000", padding: 8, borderRadius: 8}}>📅</Text>
-                </TouchableOpacity>
-                {/* <ScrollView contentContainerStyle={styles.barberCardWrapper}>
-                  {barberList.map((item) => {
-                    return (
-                      <BarberCard key={item.id} name={item.name} />
-                    );
-                  })}
-                </ScrollView> */}
-                <SafeAreaView style={{display: "flex", flexDirection: "row", flexWrap: "wrap", gap: 20}}>
-                  
-                    {
-                      barberList.map( (item) => {
-                        return(
-                          <>
-                            <BarberCard key={item.id} name={item.name} />
-                          </>
-                        )
-                      })
-                    }
-                  
-                <TouchableOpacity
-                  style={{}}
-                  onPress={() => {
-                    setPage(3);
-                  }}
-                >
-                  <Text style={styles.buttonText}>.</Text>
-                </TouchableOpacity>
-                </SafeAreaView>
 
-                
+                <Text
+                  style={{
+                    fontFamily: "sen",
+                    fontSize: 20,
+                    color: "#FFFFFF",
+                    marginBottom: 20,
+                  }}
+                >
+                  {`${date ? date.toLocaleDateString() : "Select a date"}, ${hour ? hour : "00"}:${minutes ? minutes : "00"}`}
+                </Text>
+
+                {/* Date Picker */}
+                <DatePickerModal
+                  locale="en"
+                  mode="single"
+                  visible={open}
+                  onDismiss={onDismissSingle}
+                  date={date}
+                  onConfirm={onConfirmSingle}
+                />
+
+                <TouchableOpacity
+                  style={{ width: "100%", backgroundColor: "#FFFFFF", marginBottom: 10, borderRadius: 8 }}
+                  onPress={() => setOpen(true)}
+                >
+                  <Text style={{ color: "#000000", padding: 8, borderRadius: 8, fontFamily: "sen" }}>📅 Choose Date</Text>
+                </TouchableOpacity>
+
+                {/* Time Picker */}
+                <TimePickerModal
+                  visible={visible}
+                  onDismiss={onDismiss}
+                  onConfirm={onConfirm}
+                  hours={hour}
+                  minutes={minutes}
+                />
+
+                <TouchableOpacity
+                  style={{ width: "100%", backgroundColor: "#FFFFFF", borderRadius: 8 }}
+                  onPress={() => setVisible(true)}
+                >
+                  <Text style={{ color: "#000000", padding: 8, borderRadius: 8, fontFamily: "sen" }}>🕒 Choose Time</Text>
+                </TouchableOpacity>
+                {
+                  date && hour ? 
+                  <TouchableOpacity style={styles.button1} onPress={ () => {
+                    schedule.push({date: date.toLocaleDateString(), time: hour + ":" + minutes});
+                    setPage(0);
+                  }}>
+                  <Text style={styles.buttonText}>Confirm</Text>
+                  </TouchableOpacity>
+                  :
+                  ""
+                }
               </>
-            )}    
+            )} 
 
           </View>
         </View>
@@ -259,6 +285,16 @@
   }
 
   const styles = StyleSheet.create({
+    button1: {
+      width: 100,
+      height: 40,
+      backgroundColor: "#AA0000",
+      justifyContent: "center",
+      alignItems: "center",
+      borderRadius: 10,
+      marginVertical: 10,
+      alignSelf: "center"
+  },
     safe: {
       backgroundColor: "#131316",
       flex: 1,
