@@ -1,6 +1,5 @@
   import {
     SafeAreaView,
-    Image,
     StyleSheet,
     View,
     TouchableOpacity,
@@ -10,6 +9,9 @@
     ScrollView,  // Import ScrollView
   } from "react-native";
 
+ 
+  import { Image } from "expo-image";
+
   import { DatePickerModal, TimePickerModal } from 'react-native-paper-dates';
 
   import React, { useState, useEffect } from "react";
@@ -17,7 +19,7 @@
   import ScheduleCard from "@/components/ScheduleCard";
   import HeadquartersCard from "@/components/HeadquartersCard";
   import BarberCard from "@/components/BarberCard";
-
+  
   interface ISchedule {
     date: string;
     time: string;
@@ -96,8 +98,7 @@
       <View style={styles.safe}>
         <Image
           source={require("@/assets/images/barber-line.png")}
-          width={50}
-          height={50}
+          style={{width: "100%", height: 8}}
         />
         <View style={styles.mainContainer}>
           <Header textOne="Welcome," textTwo="Billy Bob" />
