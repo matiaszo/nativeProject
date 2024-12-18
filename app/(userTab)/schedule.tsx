@@ -1,6 +1,5 @@
   import {
     SafeAreaView,
-    Image,
     StyleSheet,
     View,
     TouchableOpacity,
@@ -10,6 +9,8 @@
     ScrollView,  // Import ScrollView
   } from "react-native";
 
+  import { Image } from "expo-image";
+
   import { DatePickerModal } from 'react-native-paper-dates';
 
   import React, { useState, useEffect } from "react";
@@ -17,6 +18,7 @@
   import ScheduleCard from "@/components/ScheduleCard";
   import HeadquartersCard from "@/components/HeadquartersCard";
   import BarberCard from "@/components/BarberCard";
+  import calendar from "@/assets/images/calendar3.png";
 
   interface ISchedule {
     date: string;
@@ -212,12 +214,12 @@
                 onConfirm={onConfirmSingle}
               />
               <TouchableOpacity
-                  style={{width: "100%", backgroundColor: "#FFFFFF"}}
+                  style={{width: "100%", backgroundColor: "#FFFFFF", borderRadius: 10, padding: 1}}
                   onPress={() => {
                     setOpen(true);
                   }}
                 >
-                  <Text style={{color: "#000000", padding: 8, borderRadius: 8}}>📅</Text>
+                  <Image source={calendar} style={{width: 30, height: 30, marginLeft: 5}}/>
                 </TouchableOpacity>
                 {/* <ScrollView contentContainerStyle={styles.barberCardWrapper}>
                   {barberList.map((item) => {
