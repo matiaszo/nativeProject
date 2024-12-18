@@ -270,8 +270,11 @@
                   <TouchableOpacity style={styles.button1} onPress={ () => {
                     schedule.push({date: date.toLocaleDateString(), time: hour + ":" + minutes});
                     setPage(0);
+                    setDate(undefined);
+                    setHour(undefined);
+                    setMinutes(undefined);
                   }}>
-                  <Text style={styles.buttonText}>Confirm</Text>
+                    <Text style={styles.buttonText}>Confirm</Text>
                   </TouchableOpacity>
                   :
                   ""

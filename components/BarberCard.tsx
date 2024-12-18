@@ -6,7 +6,7 @@ interface IBarber {
 }
 
 const BarberCard = (props: IBarber) => {
-    let imageSource = require(`@/assets/images/barber.png`);
+    let imageSource = require(`@/assets/images/man2.jpg`);
     return (
         <View style={styles.cardContainer}>
             <Image source={imageSource} style={styles.image} />
