@@ -2,6 +2,7 @@ import { SafeAreaView, Image, StyleSheet, Text, TextInput, TouchableOpacity, Vie
 import React, { useState } from "react";
 
 import Header from "@/components/Header";
+import logo from "@/assets/images/logo.png"
 
 export default function HomeScreen() {
   return (
@@ -10,6 +11,10 @@ export default function HomeScreen() {
         <Image source={require("@/assets/images/barber-line.png")} width={50} height={50}/>
         <View style={styles.mainContainer}>
             <Header textOne="Welcome," textTwo="Billy Bob"/>
+            <Image source={logo} width={50} height={50}/>
+            <Text style={{fontFamily: "sen",color: "#ffffff", fontSize: 24,marginTop: 55, textAlign: "center"}}>St Paul was created at 12/9/2024 by Matias and Kauane.
+                We provide different services at a fair price, always looking to embrace and appreciate our costumers and his needs
+            </Text>
         </View>
     </SafeAreaView>
     </>
@@ -35,6 +40,6 @@ const styles = StyleSheet.create({
     mainContainer: {
         flex: 1,
         alignItems: "center",
-        padding: 30
+        padding: 30,
     }
 });

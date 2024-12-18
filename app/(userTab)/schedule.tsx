@@ -81,8 +81,7 @@
       <View style={styles.safe}>
         <Image
           source={require("@/assets/images/barber-line.png")}
-          width={50}
-          height={50}
+          style={{width: "100%", height: 8}}
         />
         <View style={styles.mainContainer}>
           <Header textOne="Welcome," textTwo="Billy Bob" />
