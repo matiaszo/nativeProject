@@ -9,7 +9,7 @@ export default function Index() {
       <View style={styles.project}>
         <View style={{display: "flex", alignItems: "center"}}>
           <Image source={require("@/assets/images/topLogo.png")} style={styles.image}/>
-          <Text style={{fontFamily: "lobster", fontSize: 30, color: "#f8f8f8"}}>Login on your account</Text>
+          <Text style={{fontFamily: "lobster", fontSize: 30, color: "#f8f8f8", marginTop: 80}}>Login on your account</Text>
           <Text style={{fontFamily: "lobster", fontSize: 16, color: "#f8f8f8"}}>Insert your login credentials here</Text>
           <View style={styles.inputBoxes}> 
             <View style={styles.inputAndTopText}>  
@@ -19,8 +19,8 @@ export default function Index() {
             <View style={styles.inputAndTopText}>
               <Text style={styles.topText}>Password</Text> 
               <TextInput style={styles.input} placeholderTextColor={"#c1c1c1"} placeholder="  Type your password" keyboardType="default"/>
-              <Link href={"/recpassword"}>
-                <Text style={[styles.topText, {opacity: 0.8}]}>Forgot your password? Rescue it here</Text> 
+              <Link href={"/recpassword"} style={{marginTop: 20}}>
+                <Text style={[styles.topText, {opacity: 0.8, marginTop: 20}]}>Forgot your password? Rescue it here</Text> 
               </Link>
             </View>
           </View>
@@ -34,7 +34,7 @@ export default function Index() {
           </Link>
 
           <View style={{width: "100%"}}>
-            <Link href={"/register"} style={{display: "flex", flexDirection:"column"}}>
+            <Link href={"/register"} style={{display: "flex", flexDirection:"column", marginLeft: 20, marginBottom: 20}}>
               <Text style={{color: "#f8f8f8", fontSize: 18, opacity: 0.8, fontFamily: "lobster"}}>New around here?</Text>
               <Text style={{color: "#f8f8f8", fontSize: 12, opacity: 0.8, fontFamily: "eRegular"}}>Register with us here</Text>
             </Link>
@@ -57,7 +57,7 @@ const styles = StyleSheet.create({
     // marginTop: 20,
 },
 inputAndTopText: {
-  // marginTop: 15,
+  marginTop: 30,
   gap: 5
 },
 image:{
@@ -86,6 +86,6 @@ button: {
   alignItems: "center",
   borderRadius: 10,
   padding: 5,
-  // marginVertical: 25,
+  marginVertical: 25,
 },
 });

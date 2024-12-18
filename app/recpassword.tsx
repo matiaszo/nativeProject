@@ -16,7 +16,7 @@ const RegisterPage = () => {
       <View style={styles.project}>
         <View style={{display: "flex", alignItems: "center", width: "100%"}}>
           <Image source={require("@/assets/images/topLogo.png")} style={styles.image}/>
-          <Text style={{fontFamily: "lobster", fontSize: 30, color: "#f8f8f8"}}>Recover your password</Text>
+          <Text style={{fontFamily: "lobster", fontSize: 30, color: "#f8f8f8", marginTop: 80}}>Recover your password</Text>
           <Text style={{fontFamily: "lobster", fontSize: 16, color: "#E1E1E1"}}>Insert your emai below and recieve a code</Text>
           
           <View style={styles.inputBoxes}> 
@@ -81,7 +81,7 @@ const RegisterPage = () => {
           </Link>
 
           <View style={{width: "100%"}}>
-            <Link href={"/"} style={{display: "flex", flexDirection:"column"}}>
+            <Link href={"/"} style={{display: "flex", flexDirection:"column", marginLeft: 20, marginBottom: 20}}>
               <Text style={{color: "#f8f8f8",  fontSize: 18, opacity: 0.8}}>Already a member?</Text>
               <Text style={{color: "#f8f8f8", fontSize: 12, opacity: 0.8}}>Sign in with your account here</Text>
             </Link>
@@ -113,7 +113,7 @@ image:{
   height: 10
 },
 inputAndTopText: {
-
+  marginTop: 25,
   gap: 5,
   color: "#a4a4a4"
 },
@@ -139,6 +139,7 @@ button: {
   alignItems: "center",
   borderRadius: 10,
   padding: 5,
+  marginVertical: 25
 
 },
 });

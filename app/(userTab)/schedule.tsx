@@ -9,6 +9,9 @@
     FlatList,
     ScrollView,  // Import ScrollView
   } from "react-native";
+
+  import { DatePickerModal } from 'react-native-paper-dates';
+
   import React, { useState, useEffect } from "react";
   import Header from "@/components/Header";
   import ScheduleCard from "@/components/ScheduleCard";
@@ -38,19 +41,29 @@
   ];
 
   const barberList = [
-    { id: "1", name: "Dwisssght Jhonson" },
-    { id: "2", name: "John Doe" },
-    { id: "3", name: "Bruce Wayne" },
-    { id: "4", name: "Clark Kent" },
-    { id: "5", name: "Peter Parker" },
-    { id: "6", name: "Tony Stark" },
-    { id: "7", name: "Steve Rogers" },
-    { id: "8", name: "Natasha Romanoff" },
+    { id: "1", name: "Dwight Schrute" },
+    { id: "2", name: "Billy Bobby Brown"}
+
+    
   ];
 
   export default function ScheduleScreen() {
     const [page, setPage] = useState(0);
     const [schedule, setSchedule] = useState<ISchedule[]>([]);
+    const [date, setDate] = useState(undefined)
+    const [open, setOpen] = React.useState(false);
+
+    const onDismissSingle = React.useCallback(() => {
+      setOpen(false);
+    }, [setOpen]);
+  
+    const onConfirmSingle = React.useCallback(
+      (params: any) => {
+        setOpen(false);
+        setDate(params.date);
+      },
+      [setOpen, setDate]
+    );
 
     const scheduleDemo: ISchedule[] = [
       { time: "08h30", date: "18/12/2024" },
@@ -59,6 +72,7 @@
 
     useEffect(() => {
       setSchedule(scheduleDemo);
+      setPage(0);
     }, []);
 
     return (
@@ -93,7 +107,7 @@
             {page === 1 && (
               <>
                 <Text
-                  style={{ fontFamily: "sen", fontSize: 20, color: "#FFFFFF" }}
+                  style={{ fontFamily: "sen", fontSize: 20, color: "#FFFFFF", marginBottom: 20 }}
                 >
                   1. Choose your headquarters
                 </Text>
@@ -122,19 +136,20 @@
                   contentContainerStyle={styles.scrollContent}
                 />
                 <TouchableOpacity
-                  style={styles.button}
+                  style={{height: 70}}
                   onPress={() => {
                     setPage(2);
                   }}
                 >
-                  <Text style={styles.buttonText}>book</Text>
+                  <Text style={styles.buttonText}>.</Text>
                 </TouchableOpacity>
               </>
             )}
+
             {page === 2 && (
               <>
                 <Text
-                  style={{ fontFamily: "sen", fontSize: 20, color: "#FFFFFF" }}
+                  style={{ fontFamily: "sen", fontSize: 20, color: "#FFFFFF", marginBottom: 20 }}
                 >
                   2. Choose your barber
                 </Text>
@@ -155,30 +170,88 @@
                     );
                   })}
                 </ScrollView> */}
-                <SafeAreaView>
-
-
-                <FlatList
-                  data={barberList}
-                  renderItem={({ item }) => (
-                    <BarberCard key={item.id} name={item.name} />
-                  )}
-                  keyExtractor={(item) => item.id.toString()}
-                  style={styles.barberCardWrapper}
-                />
-
-
-                </SafeAreaView>
+                <SafeAreaView style={{display: "flex", flexDirection: "row", flexWrap: "wrap", gap: 20}}>
+                  
+                    {
+                      barberList.map( (item) => {
+                        return(
+                          <>
+                            <BarberCard key={item.id} name={item.name} />
+                          </>
+                        )
+                      })
+                    }
+                  
                 <TouchableOpacity
-                  style={styles.button}
+                  style={{}}
                   onPress={() => {
-                    setPage(2);
+                    setPage(3);
                   }}
                 >
-                  <Text style={styles.buttonText}>Book</Text>
+                  <Text style={styles.buttonText}>.</Text>
                 </TouchableOpacity>
+                </SafeAreaView>
+
+                
               </>
             )}
+
+            {page === 3 && (
+              <>
+                <Text
+                  style={{ fontFamily: "sen", fontSize: 20, color: "#FFFFFF", marginBottom: 20 }}
+                >
+                  3. Choose your appropriate day and time
+                </Text>
+                <DatePickerModal
+                locale="en"
+                mode="single"
+                visible={open}
+                onDismiss={onDismissSingle}
+                date={date}
+                onConfirm={onConfirmSingle}
+              />
+              <TouchableOpacity
+                  style={{width: "100%", backgroundColor: "#FFFFFF"}}
+                  onPress={() => {
+                    setOpen(true);
+                  }}
+                >
+                  <Text style={{color: "#000000", padding: 8, borderRadius: 8}}>📅</Text>
+                </TouchableOpacity>
+                {/* <ScrollView contentContainerStyle={styles.barberCardWrapper}>
+                  {barberList.map((item) => {
+                    return (
+                      <BarberCard key={item.id} name={item.name} />
+                    );
+                  })}
+                </ScrollView> */}
+                <SafeAreaView style={{display: "flex", flexDirection: "row", flexWrap: "wrap", gap: 20}}>
+                  
+                    {
+                      barberList.map( (item) => {
+                        return(
+                          <>
+                            <BarberCard key={item.id} name={item.name} />
+                          </>
+                        )
+                      })
+                    }
+                  
+                <TouchableOpacity
+                  style={{}}
+                  onPress={() => {
+                    setPage(3);
+                  }}
+                >
+                  <Text style={styles.buttonText}>.</Text>
+                </TouchableOpacity>
+                </SafeAreaView>
+
+                
+              </>
+            )}    
+
           </View>
         </View>
       </View>
@@ -222,5 +295,6 @@
   marginBottom: 10,
   paddingBottom: 20, // Espaço extra na parte inferior
   // minHeight: 300, // Garantir altura mínima para forçar rolagem
+  
     },
   });

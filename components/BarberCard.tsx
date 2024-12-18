@@ -12,6 +12,9 @@ const BarberCard = (props: IBarber) => {
             <Image source={imageSource} style={styles.image} />
             <View style={styles.textContainer}>
                     <Text style={styles.headquartersName}>{props.name}</Text>
+                    <TouchableOpacity style={styles.button}>
+                        <Text style={styles.buttonText}>Book Now</Text>
+                    </TouchableOpacity>
             </View>
         </View>
     );
@@ -21,11 +24,16 @@ const styles = StyleSheet.create({
     cardContainer: {
         display: "flex",
         flexDirection: "column",
+        justifyContent: "center",
+        alignItems: "center",
+        alignSelf: "center",
         width: "45%",
+        maxHeight: 260,
+        // backgroundColor: "#27272C",
         backgroundColor: "#27272C",
         // padding: 10,
         borderRadius: 8,
-        marginVertical: 20,
+        marginVertical: 10,
         shadowColor: "#000000",
         shadowOpacity: 0.1,
         shadowRadius: 5,
@@ -33,13 +41,13 @@ const styles = StyleSheet.create({
     },
     image: {
         width: "100%",
-        height: 150,
+        height: 120,
         borderRadius: 8,
         marginBottom: 10,
     },
     textContainer: {
         display: "flex",
-        flexDirection: "row",
+        flexDirection: "column",
         alignItems: "center",
         justifyContent: "space-between",
         padding: 8
@@ -49,6 +57,7 @@ const styles = StyleSheet.create({
         fontFamily: "sen",
         fontSize: 18,
         fontWeight: "bold",
+        textAlign: "center"
     },
     address: {
         color: "#FFFFFF",
@@ -64,7 +73,6 @@ const styles = StyleSheet.create({
         alignItems: "center",
         borderRadius: 10,
         marginVertical: 10,
-        marginRight: 10
     },
     buttonText: {
         color: "#FFFFFF",

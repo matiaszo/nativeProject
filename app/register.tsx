@@ -9,7 +9,7 @@ export default function Register() {
       <View style={styles.project}>
         <View style={{display: "flex", alignItems: "center", width: "100%"}}>
           <Image source={require("@/assets/images/topLogo.png")} style={styles.image}/>
-          <Text style={{fontFamily: "lobster", fontSize: 30, color: "#f8f8f8"}}>Register a new account</Text>
+          <Text style={{fontFamily: "lobster", fontSize: 30, color: "#f8f8f8", marginTop: 80}}>Register a new account</Text>
           <Text style={{fontFamily: "lobster", fontSize: 16, color: "#f8f8f8"}}>Insert your information and register with us</Text>
           <View style={styles.inputBoxes}> 
             <View style={styles.inputAndTopText}>  
@@ -45,7 +45,7 @@ export default function Register() {
           </Link>
 
           <View style={{width: "100%"}}>
-            <Link href={"/"} style={{display: "flex", flexDirection:"column"}}>
+            <Link href={"/"} style={{display: "flex", flexDirection:"column",marginLeft: 20, marginBottom: 20}}>
               <Text style={{color: "#f8f8f8", fontSize: 18, opacity: 0.8, fontFamily: "lobster"}}>Already a member?</Text>
               <Text style={{color: "#f8f8f8", fontSize: 12, opacity: 0.8, fontFamily: "eRegular"}}>Sign in with your account here</Text>
             </Link>
@@ -73,7 +73,7 @@ image:{
   height: 10
 },
 inputAndTopText: {
-
+  marginTop: 30,
   gap: 5
 },
 
@@ -98,5 +98,6 @@ button: {
   alignItems: "center",
   borderRadius: 10,
   padding: 5,
+  marginVertical: 25,
 },
 });
